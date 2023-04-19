@@ -22,9 +22,9 @@ def move_duck():
 	rate.sleep()
 	#while not rospy.is_shutdown():
 	#for i in range(4):	
-	vel.v = 2
-	distance = 2
-	time = distance/vel.linear.x
+	vel.v = .7
+	distance = .25
+	time = distance/vel.v
 	
 	start_time = rospy.Time.now()
 	end_time = start_time + rospy.Duration.from_sec(time)
@@ -37,7 +37,7 @@ def move_duck():
 	'''
 	vel.omega = 1
 	distance = (math.pi)/2
-	time = distance/vel.angular.z
+	time = distance/vel.omega
 	
 	start_time = rospy.Time.now()
 	end_time = start_time + rospy.Duration.from_sec(time)
