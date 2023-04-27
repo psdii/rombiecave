@@ -1,6 +1,7 @@
   <launch>
     <group ns="$(env VEHICLE_NAME)">
         <node pkg="lab2" type="rombie_move.py" name="rombie_move"/>
+        <node pkg="lab2" type="odoRombie.py" name="odoRombie.py"/>
     </group>
     <include file="$(find anti_instagram)/launch/anti_instagram_node.launch">
         <arg name="veh" value="$(env VEHICLE_NAME)"/>

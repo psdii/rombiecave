@@ -21,7 +21,11 @@ class odoMeasure:
 		
 		self.left_dist_init = 0
 		self.right_dist_init = 0
-
+	
+		self.pose.x = 0
+		self.pose.y = 0
+		self.pose.theta = 0
+		
 		self.x = 0
 		self.y = 0
 		self.theta = 0
@@ -32,35 +36,47 @@ class odoMeasure:
 			self.left_dist_init = msg1.data
 			self.right_dist_init = msg2.data
 			self.started = 1
+
 		else:
+			
 			left_dist = msg1.data - self.left_dist_init
 			right_dist = msg2.data - self.right_dist_init
 			
 			left_dist_cm = left_dist * 0.001592
 			right_dist_cm = right_dist * 0.001592
 			
+			#self.left_dist_init = left_dist
+			#self.right_dist_init = right_dist
 
 			s_l = left_dist_cm
 			s_r = right_dist_cm
+			
+
 
 			delta_s = (s_l + s_r)/2
 			delta_theta = (s_r - s_l)/(0.1)
+			
 			delta_x = delta_s * cos(self.theta + delta_theta/2)
 			delta_y = delta_s * sin(self.theta + delta_theta/2)
+			
+			'''
 			self.x += delta_x
 			self.y += delta_y
 			self.theta += delta_theta
-
+			'''
+			self.x = self.pose.x + delta_x
+			self.y = self.pose.y + delta_y
+			self.theta = self.pose.theta + delta_theta
+			#rospy.logwarn("quack")
 			if self.theta > pi:
 			    self.theta -= 2*pi
 			if self.theta < -pi:
 			    self.theta += 2*pi
-
-			pose = Pose2D()
-			pose.x = self.x
-			pose.y = self.y
-			pose.theta = self.theta
-			self.pub.publish(pose)
+			
+			self.pose.x = self.x
+			self.pose.y = self.y
+			self.pose.theta = self.theta
+			self.pub.publish(self.pose)
 			
 
 

@@ -27,160 +27,117 @@ class move_duck():
 		self.movePub.publish(self.vel)
 		'''
 		rospy.sleep(5)
-	
-		self.vel.v = .3
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(4)
-		self.vel.v = 0
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-		
-		self.vel.omega = 4	
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(.7)
-		self.vel.omega = 0
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-
-		self.vel.v = .3
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(4)
-		self.vel.v = 0
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-		
-		self.vel.omega = 4	
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(.7)
-		self.vel.omega = 0
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-		
-		self.vel.v = .3
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(4)
-		self.vel.v = 0
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-		
-		self.vel.omega = 4	
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(.7)
-		self.vel.omega = 0
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-
-		self.vel.v = .3
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(4)
-		self.vel.v = 0
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-		
-		self.vel.omega = 4	
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(.7)
-		self.vel.omega = 0
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		self.movePub.publish(self.vel)
-		rospy.sleep(5)
+		vdur = 4
+		tdur = .5
+		sdur = 5
+		for x in range(4):
+			self.vel.v = .3
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			rospy.sleep(vdur)
+			self.vel.v = 0
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			rospy.sleep(sdur)
+			
+			self.vel.omega = 4	
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			rospy.sleep(tdur)
+			self.vel.omega = 0
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			self.movePub.publish(self.vel)
+			rospy.sleep(sdur)
 		'''
-		self.vel.omega = 8	
-		self.movePub.publish(self.vel)
-		rospy.sleep(1)
-		self.vel.omega = 0
-		self.movePub.publish(self.vel)
-		rospy.sleep(5)
 		
-		self.vel.v = .7
 		self.movePub.publish(self.vel)
-		rospy.sleep(2)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(vdur)
 		self.vel.v = 0
 		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-		
-		self.vel.omega = .7	
 		self.movePub.publish(self.vel)
-		rospy.sleep(2)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(sdur)
+		
+		self.vel.omega = 4	
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(tdur)
 		self.vel.omega = 0
 		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-		
-		self.vel.v = .7
 		self.movePub.publish(self.vel)
-		rospy.sleep(2)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(sdur)
+		
+		
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(vdur)
 		self.vel.v = 0
 		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-		
-		self.vel.omega = .7	
 		self.movePub.publish(self.vel)
-		rospy.sleep(2)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(sdur)
+		
+		self.vel.omega = 4	
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(tdur)
 		self.vel.omega = 0
 		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-		
-		self.vel.v = .7
 		self.movePub.publish(self.vel)
-		rospy.sleep(2)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(sdur)
+		
+		
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(vdur)
 		self.vel.v = 0
 		self.movePub.publish(self.vel)
-		rospy.sleep(5)
-		
-		self.vel.omega = .7	
 		self.movePub.publish(self.vel)
-		rospy.sleep(2)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(sdur)
+		
+		self.vel.omega = 4	
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(tdur)
 		self.vel.omega = 0
 		self.movePub.publish(self.vel)
-		rospy.sleep(5)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		self.movePub.publish(self.vel)
+		rospy.sleep(sdur)
 		'''
+		
+		
+		
 	def move_cb(self, msg):
 		if msg.state=="LANE_FOLLOWING":
 			self.duckie_box()
@@ -242,7 +199,7 @@ def move_duck():
 		pub.publish(vel)
 	vel.v = 0
 	pub.publish(vel)
-'''	
+'''
 
 
 if __name__ == '__main__':
