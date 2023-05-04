@@ -39,7 +39,7 @@ class ImageCropper:
 		arr_cutoff = np.array([0, offset, 0, offset])
 		arr_ratio = np.array([1. / image_size[0], 1. / image_size[1], 1. / image_size[0], 1. / image_size[1]])
 		hough_array = SegmentList()
-		normalized_lines = Segment()
+		
 		
 		#cv_cropped = cv_img[240:480,0:640]
 		hsv_cropped = cv2.cvtColor(cv_cropped, cv2.COLOR_BGR2HSV)
@@ -69,6 +69,7 @@ class ImageCropper:
 		cv_imge_lines = cv_cropped.copy()
 		if lines is not None:
 			for line in lines:
+				normalized_lines = Segment()
 				x1, y1, x2, y2 = line[0]
 				tobenormalized = line[0]
 				cv2.line(cv_imge_lines, (x1, y1), (x2, y2), (0, 0, 255), 2)
@@ -80,9 +81,8 @@ class ImageCropper:
 				normalized_lines.pixels_normalized[1].y = normalized[3]
 				normalized_lines.color = 1
 				hough_array.segments.append(normalized_lines)
-				self.pub5.publish(hough_array)
 				
-				
+			#self.pub5.publish(hough_array)	
 			#self.pub2.publish(ros_linesy)
 		
 		#white portion
@@ -94,6 +94,7 @@ class ImageCropper:
 		#cv_imge_whitelines = cv_cropped.copy()
 		if lines is not None:
 			for line in lines:
+				normalized_lines = Segment()
 				x1, y1, x2, y2 = line[0]
 				tobenormalized = line[0]
 				cv2.line(cv_imge_lines, (x1, y1), (x2, y2), (0, 255, 0), 2)
@@ -104,8 +105,8 @@ class ImageCropper:
 				normalized_lines.pixels_normalized[1].y = normalized[3]
 				normalized_lines.color = 0
 				hough_array.segments.append(normalized_lines)
-				self.pub5.publish(hough_array)
-				
+			
+			self.pub5.publish(hough_array)	
 			ros_linesw = self.bridge.cv2_to_imgmsg(cv_imge_lines, "bgr8")
 			self.pub3.publish(ros_linesw)
 			
